@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta property="og:title" content="كعكي يشرح · Kaki Explains">
+<meta property="og:description" content="كل سؤال بداية حكاية. علم وفلوس وحياتنا اليومية في أقل من دقيقة.">
+<meta property="og:image" content="img/kaki-curious.webp">
+<link rel="icon" href="img/kaki-curious.webp">
+<title>كعكي يشرح · روابط</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#11172B">
+<meta name="description" content="كعكي يشرح · كل سؤال بداية حكاية. علم وفلوس وحياتنا اليومية في أقل من دقيقة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;800&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
+<style>
+/* Layout: one phone column. Night: Kaki's blue sky with a «؟» constellation. Day: warm paper with a soft cobalt sun-haze and the same
+   constellation drawn in pencil. Kaki asks at the top, one big follow, a 3-tile dock, the ask button, the card deck, business last. */
+:root {
+  --bg: #0B1022; --bg-glow: #1F2F78; --surface: #19223F; --surface-2: #232E55; --line: rgba(242,241,233,.12);
+  --text: #F2F1E9; --muted: #A6AECB; --accent: #69E0C2; --accent-ink: #11172B; --warm: #FF9352; --cobalt: #3563FF;
+  --hero-card: #F2F1E9; --hero-card-text: #11172B; --chip-bg: rgba(105,224,194,.12); --chip-line: rgba(105,224,194,.3); --chip-text: #69E0C2;
+  --card-back: #F2F1E9; --card-back-text: #11172B; --shadow: 0 16px 40px rgba(0,0,0,.4); --kaki-glow: drop-shadow(0 0 3px rgba(53,99,255,.95)) drop-shadow(0 0 30px rgba(53,99,255,.5));
+  --display: "Readex Pro", "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --body: "IBM Plex Sans Arabic", "Readex Pro", "Segoe UI", Tahoma, sans-serif;
+  color-scheme: dark;
+}
+:root[data-kaki="light"] {
+  --bg: #F4F1E8; --bg-glow: #DCE5FF; --surface: #FFFFFF; --surface-2: #EEF1FB; --line: rgba(17,23,43,.1);
+  --text: #11172B; --muted: #5E6787; --accent: #1FAE8C; --accent-ink: #FFFFFF; --warm: #E8722F; --cobalt: #3563FF;
+  --hero-card: #11172B; --hero-card-text: #F2F1E9; --chip-bg: rgba(53,99,255,.08); --chip-line: rgba(53,99,255,.25); --chip-text: #2A4FD6;
+  --card-back: #FFFFFF; --card-back-text: #11172B; --shadow: 0 14px 34px rgba(17,23,43,.14); --kaki-glow: drop-shadow(0 10px 18px rgba(53,99,255,.28));
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+  margin: 0; color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.6; direction: rtl;
+  background: radial-gradient(110% 50% at 50% 0%, var(--bg-glow) 0%, var(--bg) 62%) fixed, var(--bg);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 16px 44px; overflow-x: hidden; transition: background-color .3s ease, color .3s ease;
+}
+.sky { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.wrap { position: relative; z-index: 1; max-width: 460px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 12px; }
+
+/* ---------- top bar: theme switch ---------- */
+.top { display: flex; justify-content: space-between; align-items: center; }
+.top .brand { font-family: var(--display); font-weight: 800; font-size: 14px; color: var(--muted); }
+.theme { display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
+.theme button { border: 0; background: transparent; border-radius: 999px; padding: 5px 12px 7px; font-family: var(--display); font-weight: 600; font-size: 13px; cursor: pointer; color: var(--muted); display: inline-flex; gap: 6px; align-items: center; }
+.theme button[aria-pressed="true"] { background: var(--hero-card); color: var(--hero-card-text); }
+
+/* ---------- hero ---------- */
+.hero { display: grid; justify-items: center; gap: 8px; text-align: center; }
+.kaki-wrap { position: relative; width: 190px; height: 190px; display: grid; place-items: center; }
+.ring { position: absolute; inset: 14px; border-radius: 50%; border: 2px dashed var(--accent); opacity: .55; animation: spin 14s linear infinite; }
+.ring2 { position: absolute; inset: 0; border-radius: 50%; box-shadow: 0 0 0 0 var(--accent); animation: ping 2.4s ease-out infinite; opacity: .5; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(105,224,194,.45); } 80%, 100% { box-shadow: 0 0 0 22px rgba(105,224,194,0); } }
+.kaki-btn { position: relative; background: none; border: 0; padding: 0; cursor: pointer; width: 168px; height: 168px; border-radius: 50%; -webkit-tap-highlight-color: transparent; }
+.kaki-btn img { width: 168px; height: 168px; object-fit: contain; display: block; transform-origin: 50% 80%; filter: var(--kaki-glow); transition: transform .2s ease; }
+.kaki-btn.hop img { animation: hop .38s cubic-bezier(.3,1.6,.5,1); }
+@keyframes hop { 40% { transform: translateY(-14px) scale(1.05); } }
+.tapme { position: absolute; bottom: 4px; left: -6px; display: inline-flex; align-items: center; gap: 6px; font-family: var(--display); font-weight: 800; font-size: 13px;
+  background: var(--warm); color: #11172B; border-radius: 999px; padding: 5px 12px 7px; box-shadow: var(--shadow); animation: nudge 1.6s ease-in-out infinite; pointer-events: none; }
+.tapme .hand { display: inline-block; animation: tap 1.6s ease-in-out infinite; }
+@keyframes nudge { 50% { transform: translateY(-3px); } }
+@keyframes tap { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px) scale(.9); } }
+.tapme.gone { opacity: 0; transition: opacity .4s ease; }
+.bubble { position: relative; background: var(--hero-card); color: var(--hero-card-text); font-family: var(--display); font-weight: 600; font-size: 17px;
+  padding: 8px 18px 10px; border-radius: 18px; max-width: 100%; min-height: 44px; box-shadow: var(--shadow); }
+.bubble::after { content: ""; position: absolute; top: -8px; right: 50%; transform: translateX(50%) rotate(45deg); width: 16px; height: 16px; background: var(--hero-card); border-radius: 3px; }
+.hint { font-size: 12.5px; color: var(--muted); }
+.marks { display: grid; justify-items: center; gap: 4px; margin-top: 4px; }
+.marks img { width: auto; }
+.marks .ar { height: 58px; }
+.marks .en { height: 17px; opacity: .75; }
+.only-light { display: none; }
+:root[data-kaki="light"] .only-light { display: block; }
+:root[data-kaki="light"] .only-dark { display: none; }
+.tagline { font-family: var(--display); font-weight: 600; font-size: 18px; margin: 0; text-wrap: balance; }
+.tagline b { color: var(--accent); font-weight: 800; }
+.sub { margin: 0; color: var(--muted); font-size: 14px; text-wrap: balance; }
+
+/* ---------- links: one big follow + a dock of tiles ---------- */
+.primary { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 22px; text-decoration: none;
+  background: linear-gradient(120deg, #3563FF, #6B4DFF 55%, #FF6F91); color: #fff; box-shadow: 0 14px 34px rgba(53,99,255,.35); transition: transform .15s ease; }
+.primary:hover { transform: translateY(-2px); }
+.primary .ico { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; flex: none; background: rgba(255,255,255,.18); }
+.primary .ico svg { width: 26px; height: 26px; }
+.primary .t { display: grid; flex: 1; min-width: 0; }
+.primary strong { font-family: var(--display); font-weight: 800; font-size: 19px; }
+.primary small { font-size: 13px; opacity: .85; direction: ltr; text-align: right; }
+.cta { font-family: var(--display); font-weight: 800; font-size: 14px; background: #fff; color: #11172B; border-radius: 999px; padding: 6px 16px 8px; white-space: nowrap; }
+.dock { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.tile { display: grid; justify-items: center; gap: 6px; padding: 14px 8px 12px; border-radius: 18px; text-decoration: none; background: var(--surface); border: 1px solid var(--line);
+  transition: transform .15s ease, background .15s ease; min-width: 0; text-align: center; }
+.tile:hover { transform: translateY(-2px); background: var(--surface-2); }
+.tile .ico { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: #11172B; }
+.tile .ico svg { width: 24px; height: 24px; }
+.tile strong { font-family: var(--display); font-weight: 600; font-size: 14.5px; }
+.tile small { color: var(--muted); font-size: 11.5px; }
+.tile.ask-tile .ico { background: var(--accent); color: var(--accent-ink); font-family: var(--display); font-weight: 800; font-size: 26px; }
+
+/* ---------- the question deck ---------- */
+.deck-sec { display: grid; gap: 12px; }
+.sec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.sec-h h2 { font-family: var(--display); font-size: 19px; margin: 0; }
+.sec-h span { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.deck { position: relative; height: 470px; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.card { position: absolute; top: 0; left: 0; right: 0; margin: 0 auto; width: min(300px, 82vw); height: 440px; transform-origin: 50% 110%; perspective: 1200px; cursor: grab; }
+.card:active { cursor: grabbing; }
+.flip { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.3,1.3,.5,1); }
+.card.open .flip { transform: rotateY(180deg); }
+.face { position: absolute; inset: 0; border-radius: 24px; overflow: hidden; backface-visibility: hidden; -webkit-backface-visibility: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.front img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.front .tag { position: absolute; top: 12px; right: 12px; font-family: var(--display); font-weight: 600; font-size: 12.5px; background: rgba(17,23,43,.82); color: #F2F1E9; border-radius: 999px; padding: 4px 12px 6px; }
+.front .tag.soon { background: #FF9352; color: #11172B; }
+.front .tap { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); font-size: 13px; font-family: var(--display); font-weight: 600; background: rgba(242,241,233,.94); color: #11172B; border-radius: 999px; padding: 5px 14px 7px; white-space: nowrap; }
+.back { transform: rotateY(180deg); background: var(--card-back); color: var(--card-back-text); padding: 22px 20px; display: flex; flex-direction: column; gap: 12px; }
+.back .kq { font-family: var(--display); font-weight: 800; font-size: 21px; line-height: 1.35; text-wrap: balance; }
+.back .ans { font-size: 16px; line-height: 1.7; flex: 1; overflow: auto; }
+.back .ans.soon { display: grid; place-items: center; text-align: center; font-family: var(--display); font-weight: 800; font-size: 26px; color: #E8722F; }
+.back .ans.soon small { display: block; font-family: var(--body); font-weight: 400; font-size: 14px; color: #5E6787; margin-top: 6px; }
+.back .watch { text-align: center; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 15px; background: #11172B; color: #F2F1E9; border-radius: 14px; padding: 10px 14px 12px; }
+.back .meta { font-size: 12px; color: #6B7393; }
+.deck-nav { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.nav-btn { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); font-size: 20px; cursor: pointer; }
+.nav-btn:hover { background: var(--surface-2); }
+.shuffle { font-family: var(--display); font-weight: 600; font-size: 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); padding: 10px 16px 12px; cursor: pointer; }
+.shuffle:hover { border-color: var(--accent); }
+.swipe-hint { text-align: center; color: var(--muted); font-size: 12.5px; margin: -4px 0 0; }
+
+/* ---------- business ---------- */
+.biz { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 18px; display: grid; gap: 12px; box-shadow: var(--shadow); }
+.biz h2 { font-family: var(--display); font-size: 19px; margin: 0; }
+.biz h2 small { display: block; font-family: var(--body); font-weight: 400; font-size: 12.5px; color: var(--muted); direction: ltr; text-align: right; }
+.offers { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.offers li { font-size: 13px; background: var(--chip-bg); color: var(--chip-text); border: 1px solid var(--chip-line); border-radius: 999px; padding: 4px 12px 6px; }
+.mail { display: flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 8px 8px 8px 12px; min-width: 0; }
+.mail a { flex: 1; min-width: 0; direction: ltr; text-align: left; font-family: var(--display); font-weight: 600; font-size: 15.5px; text-decoration: none; overflow-wrap: anywhere; user-select: all; }
+.copy { flex: none; font-family: var(--display); font-weight: 800; font-size: 13.5px; border: 0; border-radius: 10px; background: var(--accent); color: var(--accent-ink); padding: 8px 14px 10px; cursor: pointer; }
+
+footer { display: grid; justify-items: center; gap: 8px; color: var(--muted); font-size: 12px; text-align: center; }
+.share { font-family: var(--display); font-weight: 600; font-size: 14px; background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px 10px; cursor: pointer; }
+.share:hover { border-color: var(--accent); }
+.sound { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
+.qm { position: fixed; z-index: 5; pointer-events: none; font-family: var(--display); font-weight: 800; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+@media (max-width: 340px) { .dock { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<canvas class="sky" id="sky" aria-hidden="true"></canvas>
+<main class="wrap">
+  <div class="top">
+    <span class="brand">kaki.explains</span>
+    <div class="theme" role="group" aria-label="المظهر">
+      <button type="button" id="tLight" aria-pressed="false">☀︎ نهاري</button>
+      <button type="button" id="tDark" aria-pressed="true">☾ ليلي</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="kaki-wrap">
+      <span class="ring2" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span>
+      <button class="kaki-btn" id="kaki" aria-label="اضغط على كعكي عشان يسألك سؤال">
+        <img id="kakiImg" src="img/kaki-curious.webp" alt="كعكي" width="168" height="168">
+      </button>
+      <span class="tapme" id="tapme" aria-hidden="true"><span class="hand">👆</span>اضغط عليّ</span>
+    </div>
+    <div class="bubble" id="bubble" aria-live="polite">هلا! اضغط عليّ وأسألك سؤال 👋</div>
+    <div class="hint" id="hint">كل ضغطة = سؤال جديد من حلقاتنا</div>
+    <div class="marks">
+      <img class="ar only-dark" src="img/wordmark-ar.svg" alt="كعكي يشرح"><img class="ar only-light" src="img/wordmark-ar-ink.svg" alt="كعكي يشرح">
+      <img class="en only-dark" src="img/wordmark-en.svg" alt="Kaki Explains"><img class="en only-light" src="img/wordmark-en-ink.svg" alt="Kaki Explains">
+    </div>
+    <p class="tagline">كل سؤال <b>بداية حكاية</b></p>
+    <p class="sub">علم، فلوس، وحياتنا اليومية… في أقل من دقيقة، وبلهجتنا.</p>
+  </header>
+
+  <a class="primary" href="https://www.instagram.com/kaki.explains/" target="_blank" rel="noopener">
+    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff" stroke="none"/></svg></span>
+    <span class="t"><strong>تابعنا على إنستغرام</strong><small>@kaki.explains</small></span>
+    <span class="cta">تابع</span>
+  </a>
+
+  <nav class="dock" aria-label="حسابات وروابط">
+    <a class="tile" href="https://www.tiktok.com/@kaki.explains" target="_blank" rel="noopener">
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#F2F1E9"><path d="M14 3h3c.3 2.2 1.7 3.7 4 4v3c-1.6 0-3-.5-4-1.3V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V3z"/></svg></span>
+      <strong>تيك توك</strong><small>@kaki.explains</small>
+    </a>
+    <a class="tile" href="https://www.youtube.com/channel/UCo0rR-Mo0qn4HaJpx5PVfLw" target="_blank" rel="noopener">
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4" fill="#F2F1E9"/><path d="M10 9l5 3-5 3z" fill="#11172B"/></svg></span>
+      <strong>يوتيوب</strong><small>Shorts</small>
+    </a>
+    <a class="tile ask-tile" href="https://ig.me/m/kaki.explains" target="_blank" rel="noopener">
+      <span class="ico" aria-hidden="true">؟</span>
+      <strong>اسأل كعكي</strong><small>سؤالك = حلقة</small>
+    </a>
+  </nav>
+
+  <section class="deck-sec" aria-labelledby="deckH">
+    <div class="sec-h"><h2 id="deckH">بطاقات كعكي</h2><span id="count" aria-live="polite"></span></div>
+    <div class="deck" id="deck" aria-roledescription="بطاقات أسئلة"></div>
+    <p class="swipe-hint">اسحب البطاقة للسؤال الجاي · اضغط عليها تقلب الجواب</p>
+    <div class="deck-nav">
+      <button class="nav-btn" id="prev" type="button" aria-label="السؤال اللي قبل">→</button>
+      <button class="shuffle" id="shuffle" type="button">سؤال عشوائي 🎲</button>
+      <button class="nav-btn" id="next" type="button" aria-label="السؤال الجاي">←</button>
+    </div>
+  </section>
+
+  <section class="biz" aria-labelledby="bizH">
+    <h2 id="bizH">للأعمال والتعاون<small>Business &amp; collaborations</small></h2>
+    <ul class="offers"><li>شراكات تعليمية</li><li>رعاية حلقات بإفصاح واضح</li><li>كعكي في فعاليتك</li><li>فكرة تحتاج شرح؟</li></ul>
+    <div class="mail"><a href="mailto:Kaki.explains@gmail.com">Kaki.explains@gmail.com</a><button class="copy" id="copyMail" type="button">انسخ</button></div>
+  </section>
+
+  <footer>
+    <button class="share" id="share" type="button">انسخ رابط الصفحة</button>
+    <button class="sound" id="sound" type="button" aria-pressed="true">الصوت: شغّال</button>
+    <span>© ٢٠٢٦ كعكي يشرح · Kaki Explains</span>
+  </footer>
+</main>
+
+<script>
+(() => {
+  const AR = s => String(s).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+  const IG = 'https://www.instagram.com/kaki.explains/';
+  const root = document.documentElement;
+
+  // ---------- theme: follows the phone's setting until you pick one ----------
+  const tL = document.getElementById('tLight'), tD = document.getElementById('tDark'), mq = matchMedia('(prefers-color-scheme: light)');
+  let pick = null; try { pick = localStorage.getItem('kaki-theme'); } catch (e) {}
+  function applyTheme() { const light = pick ? pick === 'light' : mq.matches; root.setAttribute('data-kaki', light ? 'light' : 'dark');
+    tL.setAttribute('aria-pressed', light); tD.setAttribute('aria-pressed', !light); document.querySelector('meta[name="theme-color"]').content = light ? '#F4F1E8' : '#11172B'; }
+  tL.onclick = () => { pick = 'light'; try { localStorage.setItem('kaki-theme', pick); } catch (e) {} applyTheme(); sfx('pluck'); };
+  tD.onclick = () => { pick = 'dark'; try { localStorage.setItem('kaki-theme', pick); } catch (e) {} applyTheme(); sfx('pluck'); };
+  mq.addEventListener?.('change', applyTheme); applyTheme();
+
+  // ---------- cards: published ones show the answer; the rest just say «قريبًا» ----------
+  // Cards live in cards.json. A card shows its answer when live is true, or after its hidden release time (9 pm Riyadh).
+  let CARDS = [], N = 0;
+  const isLive = c => !!c.live || (!!c.release && Date.now() >= Date.parse(c.release + 'T18:00:00Z'));
+let pos = 0;
+  function cardEl(i) {
+    const [live, id, q, a] = CARDS[i];
+    const el = document.createElement('div'); el.className = 'card'; el.tabIndex = 0; el.setAttribute('role', 'button');
+    el.setAttribute('aria-label', q + (live ? ' · اضغط عشان تشوف الجواب' : ' · قريبًا'));
+    el.innerHTML = `<div class="flip"><div class="face front"><img src="img/cover-${id}.webp" alt="" draggable="false">
+      <span class="tag ${live ? '' : 'soon'}">${live ? 'حلقة منشورة' : 'قريبًا'}</span><span class="tap">اقلب البطاقة ↺</span></div>
+      <div class="face back"><div class="kq">${q}</div>${live
+        ? `<div class="ans">${a}</div><a class="watch" href="${IG}" target="_blank" rel="noopener">شوف الحلقة كاملة</a>`
+        : `<div class="ans soon"><div>قريبًا ✨<small>الجواب في حلقة جاية… تابعنا عشان ما تفوتك</small></div></div><a class="watch" href="${IG}" target="_blank" rel="noopener">تابع كعكي</a>`}
+        <div class="meta">كعكي يشرح</div></div></div>`;
+    return el;
+  }
+  function render(dir = 0) {
+    deck.innerHTML = '';
+    for (let k = 2; k >= 0; k--) {
+      const el = cardEl((pos + k) % N);
+      el.style.transform = `translateY(${k * 12}px) scale(${1 - k * 0.05}) rotate(${k ? (k % 2 ? -3 : 3) : 0}deg)`;
+      el.style.opacity = k === 2 ? .6 : 1; el.style.zIndex = 10 - k;
+      if (k === 0) { bindTop(el); if (dir) el.animate([{ transform: `translateX(${dir * -40}px) rotate(${dir * 6}deg)`, opacity: .4 }, { transform: 'none', opacity: 1 }], { duration: 260, easing: 'cubic-bezier(.3,1.3,.5,1)' }); }
+      deck.appendChild(el);
+    }
+    count.textContent = AR(pos + 1) + ' / ' + AR(N);
+  }
+  function go(dir) { pos = (pos + (dir > 0 ? 1 : N - 1)) % N; render(dir); sfx('pop'); }
+  function bindTop(el) {
+    el.classList.add('top'); let x0 = null, dx = 0, moved = false;
+    el.addEventListener('pointerdown', e => { if (e.target.closest('a')) return; x0 = e.clientX; dx = 0; moved = false; el.setPointerCapture(e.pointerId); el.style.transition = 'none'; });
+    el.addEventListener('pointermove', e => { if (x0 === null) return; dx = e.clientX - x0; if (Math.abs(dx) > 6) moved = true; el.style.transform = `translateX(${dx}px) rotate(${dx / 18}deg)`; });
+    const end = () => { if (x0 === null) return; x0 = null; el.style.transition = 'transform .25s ease';
+      if (Math.abs(dx) > 90) { el.style.transform = `translateX(${dx > 0 ? 600 : -600}px) rotate(${dx > 0 ? 30 : -30}deg)`; setTimeout(() => go(dx > 0 ? -1 : 1), 180); }
+      else { el.style.transform = 'none'; if (!moved) { el.classList.toggle('open'); sfx('pluck'); } } };
+    el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.classList.toggle('open'); } if (e.key === 'ArrowLeft') go(1); if (e.key === 'ArrowRight') go(-1); });
+  }
+  document.getElementById('next').onclick = () => go(1);
+  document.getElementById('prev').onclick = () => go(-1);
+  document.getElementById('shuffle').onclick = () => { if (!N) return; pos = (pos + 1 + Math.floor(Math.random() * (N - 1))) % N; render(1); sfx('pluck'); setTimeout(() => deck.querySelector('.top')?.classList.add('open'), 300); };
+  fetch('cards.json', { cache: 'no-cache' }).then(r => r.json()).then(d => { CARDS = d.cards.map(c => [isLive(c) ? 1 : 0, c.id, c.q, c.a]); N = CARDS.length; render(); })
+    .catch(() => { deck.innerHTML = '<p class="swipe-hint">البطاقات ما تحمّلت… جرّب تحدّث الصفحة</p>'; });
+
+  // ---------- Kaki: tap for a question; 5 quick taps = question-mark confetti ----------
+  const FACES = ['curious', 'surprise', 'thinking', 'warm', 'realization'];
+  const btn = document.getElementById('kaki'), img = document.getElementById('kakiImg'), bub = document.getElementById('bubble'), tapme = document.getElementById('tapme'), hint = document.getElementById('hint');
+  let qi = -1, fi = 0, taps = [], tapsTotal = 0;
+  btn.addEventListener('click', () => {
+    if (!N) return;
+    qi = (qi + 1 + Math.floor(Math.random() * (N - 2))) % N; fi = (fi + 1) % FACES.length; tapsTotal++;
+    bub.textContent = CARDS[qi][2]; img.src = 'img/kaki-' + FACES[fi] + '.webp';
+    btn.classList.remove('hop'); void btn.offsetWidth; btn.classList.add('hop'); sfx('pop');
+    if (tapsTotal === 1) { tapme.classList.add('gone'); hint.textContent = 'اضغط مرة ثانية… عندي أسئلة كثير 😄'; }
+    if (tapsTotal === 3) hint.textContent = 'تبي السر؟ اضغط ٥ مرات بسرعة 🤫';
+    if (navigator.vibrate) try { navigator.vibrate(12); } catch (e) {}
+    const now = Date.now(); taps = taps.filter(t => now - t < 1500); taps.push(now);
+    if (taps.length >= 5) { taps = []; confetti(); img.src = 'img/kaki-realization.webp'; bub.textContent = 'لقيت السر! كل سؤال بداية حكاية ✨'; hint.textContent = 'شوف بطاقات كعكي تحت 👇'; sfx('horn'); }
+  });
+  addEventListener('pointermove', e => { const r = btn.getBoundingClientRect(), dx = (e.clientX - (r.left + r.width / 2)) / innerWidth; img.style.transform = `rotate(${Math.max(-12, Math.min(12, dx * 24))}deg)`; }, { passive: true });
+  function confetti() {
+    const cols = ['#69E0C2', '#FF9352', '#3563FF', '#F2C94C'], r = btn.getBoundingClientRect();
+    for (let i = 0; i < 28; i++) { const s = document.createElement('span'); s.className = 'qm'; s.textContent = '؟'; s.style.color = cols[i % 4]; s.style.fontSize = (18 + Math.random() * 26) + 'px';
+      s.style.left = (r.left + r.width / 2) + 'px'; s.style.top = (r.top + r.height / 2) + 'px'; document.body.appendChild(s);
+      const a = Math.random() * Math.PI * 2, d = 120 + Math.random() * 220;
+      s.animate([{ transform: 'translate(0,0) rotate(0)', opacity: 1 }, { transform: `translate(${Math.cos(a) * d}px, ${Math.sin(a) * d + 160}px) rotate(${(Math.random() - .5) * 720}deg)`, opacity: 0 }], { duration: 1300 + Math.random() * 600, easing: 'cubic-bezier(.2,.7,.4,1)' }).onfinish = () => s.remove(); }
+  }
+
+  // ---------- sounds (after a tap; can be turned off) ----------
+  const SND = { pop: new Audio('snd/pop.mp3'), pluck: new Audio('snd/curious-pluck.mp3'), horn: new Audio('snd/party-horn.mp3') };
+  let soundOn = true; try { soundOn = localStorage.getItem('kaki-sound') !== 'off'; } catch (e) {}
+  const sb = document.getElementById('sound'); const setS = () => { sb.textContent = 'الصوت: ' + (soundOn ? 'شغّال' : 'مطفي'); sb.setAttribute('aria-pressed', soundOn); }; setS();
+  sb.onclick = () => { soundOn = !soundOn; setS(); try { localStorage.setItem('kaki-sound', soundOn ? 'on' : 'off'); } catch (e) {} };
+  function sfx(k) { if (!soundOn) return; try { const a = SND[k].cloneNode(); a.volume = .45; a.play().catch(() => {}); } catch (e) {} }
+
+  // ---------- copy ----------
+  const copy = (text, b, idle) => { try { navigator.clipboard.writeText(text).then(() => { b.textContent = 'تم ✓'; setTimeout(() => b.textContent = idle, 1600); }, () => {}); } catch (e) {} };
+  document.getElementById('copyMail').onclick = e => copy('Kaki.explains@gmail.com', e.currentTarget, 'انسخ');
+  document.getElementById('share').onclick = e => copy(location.href.split('#')[0], e.currentTarget, 'انسخ رابط الصفحة');
+
+  // ---------- sky: night stars or a day sky with soft clouds; both draw a «؟» constellation ----------
+  const c = document.getElementById('sky'), x = c.getContext('2d'), still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W, H, S = [], Q = [], CL = [], dpr = 1;
+  function size() {
+    dpr = Math.min(2, devicePixelRatio || 1); W = c.width = innerWidth * dpr; H = c.height = innerHeight * dpr; c.style.width = innerWidth + 'px'; c.style.height = innerHeight + 'px';
+    S = Array.from({ length: 90 }, () => ({ x: Math.random() * W, y: Math.random() * H, r: (Math.random() * 1.1 + .4) * dpr, p: Math.random() * 6 }));
+    CL = Array.from({ length: 6 }, (_, i) => ({ x: Math.random() * W, y: (0.05 + Math.random() * 0.8) * H, s: (40 + Math.random() * 50) * dpr, v: (0.05 + Math.random() * 0.08) * dpr }));
+    const ox = W * 0.12, oy = H * 0.06, k = Math.min(W, H) * 0.1;
+    Q = [[0.9, 0.35], [0.6, 0.05], [0.2, 0.0], [-0.05, 0.25], [0.05, 0.6], [0.4, 0.8], [0.45, 1.15], [0.45, 1.45]].map(([u, v]) => [ox + (1 - u) * k, oy + v * k]); Q.push([ox + 0.55 * k, oy + 1.85 * k]);
+  }
+  function cloud(cx, cy, s) { x.beginPath(); x.arc(cx, cy, s * .5, 0, 7); x.arc(cx + s * .5, cy - s * .15, s * .45, 0, 7); x.arc(cx + s, cy, s * .4, 0, 7); x.arc(cx + s * .45, cy + s * .12, s * .45, 0, 7); x.fill(); }
+  function draw(t) {
+    x.clearRect(0, 0, W, H); const light = root.getAttribute('data-kaki') === 'light';
+    if (light) { x.fillStyle = 'rgba(255,255,255,.75)'; for (const cl of CL) { cl.x = (cl.x + cl.v) % (W + 200 * dpr); x.globalAlpha = .9; cloud(cl.x - 100 * dpr, cl.y, cl.s); } }
+    else for (const s of S) { x.globalAlpha = .25 + .35 * (0.5 + 0.5 * Math.sin(t / 900 + s.p)); x.fillStyle = '#F2F1E9'; x.beginPath(); x.arc(s.x, s.y, s.r, 0, 7); x.fill(); }
+    x.globalAlpha = light ? .45 : .35; x.strokeStyle = light ? '#3563FF' : '#69E0C2'; x.lineWidth = 1.2 * dpr; x.setLineDash([3 * dpr, 6 * dpr]);
+    x.beginPath(); Q.slice(0, 8).forEach(([a, b], i) => i ? x.lineTo(a, b) : x.moveTo(a, b)); x.stroke(); x.setLineDash([]);
+    Q.forEach(([a, b], i) => { x.globalAlpha = .6 + .4 * Math.sin(t / 600 + i); x.fillStyle = i === 8 ? '#FF9352' : (light ? '#3563FF' : '#69E0C2'); x.beginPath(); x.arc(a, b, 2.4 * dpr, 0, 7); x.fill(); });
+    x.globalAlpha = 1; if (!still) requestAnimationFrame(draw);
+  }
+  size(); addEventListener('resize', size); requestAnimationFrame(draw);
+})();
+</script>
+
+</body>
+</html>
