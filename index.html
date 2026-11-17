@@ -94,7 +94,7 @@ button { font: inherit; color: inherit; }
 .primary strong { font-family: var(--display); font-weight: 800; font-size: 19px; }
 .primary small { font-size: 13px; opacity: .85; direction: ltr; text-align: right; }
 .cta { font-family: var(--display); font-weight: 800; font-size: 14px; background: #fff; color: #11172B; border-radius: 999px; padding: 6px 16px 8px; white-space: nowrap; }
-.dock { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.dock { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .tile { display: grid; justify-items: center; gap: 6px; padding: 14px 8px 12px; border-radius: 18px; text-decoration: none; background: var(--surface); border: 1px solid var(--line);
   transition: transform .15s ease, background .15s ease; min-width: 0; text-align: center; }
 .tile:hover { transform: translateY(-2px); background: var(--surface-2); }
@@ -149,7 +149,7 @@ footer { display: grid; justify-items: center; gap: 8px; color: var(--muted); fo
 .sound { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
 .qm { position: fixed; z-index: 5; pointer-events: none; font-family: var(--display); font-weight: 800; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
-@media (max-width: 340px) { .dock { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 420px) { .dock { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
@@ -196,6 +196,10 @@ footer { display: grid; justify-items: center; gap: 8px; color: var(--muted); fo
     <a class="tile" href="https://www.youtube.com/channel/UCo0rR-Mo0qn4HaJpx5PVfLw" target="_blank" rel="noopener">
       <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4" fill="#F2F1E9"/><path d="M10 9l5 3-5 3z" fill="#11172B"/></svg></span>
       <strong>يوتيوب</strong><small>Shorts</small>
+    </a>
+    <a class="tile" href="https://x.com/kakiexplains_" target="_blank" rel="noopener">
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#F2F1E9"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></span>
+      <strong>إكس</strong><small>@kakiexplains_</small>
     </a>
     <a class="tile ask-tile" href="https://ig.me/m/kaki.explains" target="_blank" rel="noopener">
       <span class="ico" aria-hidden="true">؟</span>
